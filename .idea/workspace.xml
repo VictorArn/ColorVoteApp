@@ -4,30 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2208a10-d408-4c6e-bf67-19f8c370b8aa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/Ballot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/Voter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VotingSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/VoteApp-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/hello-view.fxml" afterDir="false" />
+    <list default="true" id="f2208a10-d408-4c6e-bf67-19f8c370b8aa" name="Changes" comment="Setting up the git repository a bit later than usual, sorry, my first time.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +22,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="5b4c7bb2-85ab-49c4-b06e-175ce70b7c07" />
+        <option name="url" value="https://github.com/VictorArn/ColorVoteApp" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -87,7 +78,30 @@
       <option name="presentableId" value="Default" />
       <updated>1684478238072</updated>
     </task>
+    <task id="LOCAL-00001" summary="Setting up the git repository a bit later than usual, sorry, my first time.">
+      <created>1684709428028</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684709428028</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Setting up the git repository a bit later than usual, sorry, my first time." />
+    <option name="LAST_COMMIT_MESSAGE" value="Setting up the git repository a bit later than usual, sorry, my first time." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
