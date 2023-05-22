@@ -1,14 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
+<Pane prefHeight="935.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.netvoip.voteapp.VoteAppController">
+   <children>
+      <GridPane gridLinesVisible="true" layoutX="1.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+          <children>
+              <StackPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <children>
+                      <ImageView fx:id="control1" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <children>
+                      <ImageView fx:id="control2" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                  <children>
+                      <ImageView fx:id="control3" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+                  <children>
+                      <ImageView fx:id="control4" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <children>
+                      <ImageView fx:id="control5" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <children>
+                      <ImageView fx:id="control6" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                  <children>
+                      <ImageView fx:id="control7" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <children>
+                      <ImageView fx:id="control8" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <children>
+                      <ImageView fx:id="control9" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="0" GridPane.rowIndex="3">
+                  <children>
+                      <ImageView fx:id="control10" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <children>
+                      <ImageView fx:id="control11" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+              <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <children>
+                      <ImageView fx:id="control12" fitHeight="200.0" fitWidth="333.33" onMouseClicked="#handleVote" pickOnBounds="true" preserveRatio="true" />
+                      <Label text="Vote for this Color">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+                  </children>
+              </StackPane>
+          </children>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.netvoip.voteapp.VoteAppController">
-   <center>
-      <ImageView fx:id="control2" fitHeight="150.0" fitWidth="200.0" onKeyPressed="#initialize" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-   </center>
-   <top>
-      <ImageView fx:id="control1" fitHeight="150.0" fitWidth="200.0" onKeyPressed="#initialize" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-   </top>
-</BorderPane>
+      </GridPane>
+      <Label fx:id="voterLabel" alignment="CENTER" layoutX="45.0" layoutY="9.0" prefHeight="57.0" prefWidth="289.0" text="Voter Name:" textFill="#030851">
+         <font>
+            <Font name="Apple Braille Outline 6 Dot" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

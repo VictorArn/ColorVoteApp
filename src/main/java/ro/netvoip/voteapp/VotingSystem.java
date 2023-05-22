@@ -7,6 +7,15 @@ public class VotingSystem {
     private List<Voter> listVoters ;
     private Ballot ballot;
 
+    public List<Voter> getListVoters() {
+        return listVoters;
+    }
+
+
+    public Ballot getBallot() {
+        return ballot;
+    }
+
     public VotingSystem(Ballot ballot) {
         this.ballot = ballot;
         listVoters = new ArrayList<>();
