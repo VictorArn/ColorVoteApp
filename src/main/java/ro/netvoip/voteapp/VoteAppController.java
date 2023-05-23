@@ -1,7 +1,12 @@
 package ro.netvoip.voteapp;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -10,7 +15,9 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.*;
 
 public class VoteAppController {
@@ -43,22 +50,55 @@ public class VoteAppController {
     @FXML
     private Label voterLabel;
 
+    @FXML
+    private Button nextButton;
+
     private VotingSystem votingSystem;
+    private static int voterIndex = 0;
+
+    private Color [] candidateColors ;
+
+    private Ballot ballot;
+    private Voter voter;
+
+    private List<Voter> listOfVoters;
+
+    private List<Integer> choices = new ArrayList<>();
+
+    private List<Integer> colorIndexes = new ArrayList<>();
+
+
+
+
+
+    public void addVoters() {
+        listOfVoters = new ArrayList<>();
+        Voter voter1 = new Voter("John Doe", 1);
+        Voter voter2 = new Voter("Jane Doe", 2);
+        Voter voter3 = new Voter("Jack Doe", 3);
+
+        listOfVoters.add(voter1);
+        listOfVoters.add(voter2);
+        listOfVoters.add(voter3);
+    }
+
+
 
     // Map to associate color names with their Color objects
     private Map<Color, String> colorNameMap;
 
     public void initialize() {
-        String voterName = "John Doe";
+        addVoters();
+        String voterName = listOfVoters.get(voterIndex).getName();
         voterLabel.setText("Voter: " + voterName);
         // Create a Ballot with candidate names
         String[] candidateNames = {"Color 1", "Color2", "Color 3", "Color 4", "Color 5", "Color 6", "Color 7", "Color 8", "Color 9", "Color 10", "Color 11", "Color 12",};
 
         // Generate random colors for the candidates
-        Color[] candidateColors = generateRandomColors(candidateNames.length);
+        candidateColors = generateRandomColors(candidateNames.length);
 
         // Create a Ballot with the candidate names
-        Ballot ballot = new Ballot(candidateNames);
+         ballot = new Ballot(candidateNames);
 
         // Initialize the VotingSystem
         votingSystem = new VotingSystem(ballot);
@@ -82,9 +122,45 @@ public class VoteAppController {
         control11.setImage(generateImageFromColor(candidateColors[10]));
         control12.setImage(generateImageFromColor(candidateColors[11]));
 
+        nextButton.setText("Next voter");
+        nextButton.setOnAction(this::handleNextButton);
+
     }
 
-   /* public void initialize() {
+
+    @FXML
+    private void handleNextButton(ActionEvent event) {
+
+    // add the voter to the voting system after the mouse event
+        votingSystem.addExistingVoter(voter);
+        for(Voter voter : votingSystem.getListVoters()){
+            System.out.println(voter.getName() + " " + voter.getId());
+        }
+        // create a new voter based on the list of voters
+        if (voterIndex < listOfVoters.size()) {
+            // handle the label and the button
+            if (voterIndex < listOfVoters.size() - 1) {
+                voterIndex++;
+                voter = new Voter(listOfVoters.get(voterIndex).getName(), listOfVoters.get(voterIndex).getId());
+                String voterName = listOfVoters.get(voterIndex).getName();
+                voterLabel.setText("Voter: " + voterName);
+                System.out.println("Voter: " + voterName);
+                if (voterIndex == listOfVoters.size() - 1) {
+                    nextButton.setText("Display results");
+                }
+            } else {
+                // Last voter reached, display the results
+                displayResults();
+                nextButton.setDisable(true); // Disable the button after displaying results
+            }
+        }
+        }
+
+
+
+
+
+    /* public void initialize() {
         // Generate random colors
         Color color1 = generateRandomColor();
         Color color2 = generateRandomColor();
@@ -130,6 +206,38 @@ public class VoteAppController {
         control12.setImage(image12);
         // Set images and perform other operations for additional ImageViews
     }*/
+    @FXML
+    private void displayResults() {
+        // Retrieve the voters and choices from the voting system
+        List<Voter> voters = votingSystem.getListVoters();
+
+
+        // Load the Results.fxml file
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Results.fxml"));
+
+        try {
+            // Load the root node and create the scene
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            // Get the controller instance
+            ResultsController resultsController = loader.getController();
+
+            // Initialize the controller with the voters and choices
+            resultsController.initialize(voters);
+
+            // Show the scene on the stage
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addChoices(Voter voter, List<Integer> choices){
+        votingSystem.addVoter(voter, choices);
+    }
 
     @FXML
     private void handleVote(MouseEvent event) {
@@ -140,6 +248,8 @@ public class VoteAppController {
 
         // Extract the number from the imageViewId (e.g., control1 -> 1)
         int colorIndex = Integer.parseInt(imageViewId.substring(7));
+        colorIndexes.add(colorIndex);
+
 
         // Get the candidate color from the Ballot
         String candidateColor = votingSystem.getBallot().getCandidates()[colorIndex - 1];
@@ -149,15 +259,25 @@ public class VoteAppController {
 
         // Get the color name from the colorNameMap
         String colorName = getColorName(selectedColor);
+        // Add the choices to the list of choices
 
+        choices.add(colorIndex);
         // Create a Voter and cast the vote
-        Voter voter = new Voter("John Doe", 1);
+        if (voter == null) {
+
+
+         voter = new Voter(listOfVoters.get(voterIndex).getName(), listOfVoters.get(voterIndex).getId());
+
         voter.castVote(votingSystem.getBallot(), colorIndex);
 
-        // Add the Voter to the VotingSystem
-        List<Integer> choices = new ArrayList<>();
-        choices.add(colorIndex);
-        votingSystem.addVoter(voter, choices);
+        }
+        else {
+            voter.castVote(votingSystem.getBallot(), colorIndex);
+
+        }
+
+
+
 
         // Show a confirmation message to the user
         String message = "Vote registered for " + colorName + "!";

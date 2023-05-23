@@ -28,6 +28,10 @@ public class VotingSystem {
         }
         listVoters.add(voter);
     }
+
+    public void addExistingVoter(Voter voter){
+        listVoters.add(voter);
+    }
     public void removeVoter(Voter voter){
         listVoters.remove(voter);
     }
