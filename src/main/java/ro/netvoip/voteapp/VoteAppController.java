@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
@@ -52,6 +49,15 @@ public class VoteAppController {
 
     @FXML
     private Button nextButton;
+
+    @FXML
+    private Button discardVoteButton;
+    @FXML
+    private ListView<String> userVotesListView;
+
+    @FXML
+    private Button previousButton;
+
 
     private VotingSystem votingSystem;
     private static int voterIndex = 0;
@@ -124,6 +130,8 @@ public class VoteAppController {
 
         nextButton.setText("Next voter");
         nextButton.setOnAction(this::handleNextButton);
+        previousButton.setOnAction(this::handlePreviousButton);
+
 
     }
 
@@ -132,27 +140,44 @@ public class VoteAppController {
     private void handleNextButton(ActionEvent event) {
 
     // add the voter to the voting system after the mouse event
+        if(!votingSystem.getListVoters().contains(voter) )
         votingSystem.addExistingVoter(voter);
         for(Voter voter : votingSystem.getListVoters()){
             System.out.println(voter.getName() + " " + voter.getId());
         }
+
         // create a new voter based on the list of voters
         if (voterIndex < listOfVoters.size()) {
             // handle the label and the button
             if (voterIndex < listOfVoters.size() - 1) {
                 voterIndex++;
-                voter = new Voter(listOfVoters.get(voterIndex).getName(), listOfVoters.get(voterIndex).getId());
+                voter = listOfVoters.get(voterIndex);
+
                 String voterName = listOfVoters.get(voterIndex).getName();
                 voterLabel.setText("Voter: " + voterName);
+
                 System.out.println("Voter: " + voterName);
                 if (voterIndex == listOfVoters.size() - 1) {
                     nextButton.setText("Display results");
                 }
+                else {
+                    nextButton.setText("Next voter");
+                }
             } else {
                 // Last voter reached, display the results
-                displayResults();
+                Stage primaryStage = (Stage) nextButton.getScene().getWindow();
+                displayResults(primaryStage);
                 nextButton.setDisable(true); // Disable the button after displaying results
             }
+        }
+
+        // Update the userVotesListView
+        userVotesListView.getItems().clear();
+        List<Integer> votes = voter.getVotes();
+        for (int vote : votes) {
+            String colorName = votingSystem.getBallot().getCandidates()[vote - 1];
+            String voteInfo = "You voted for: " + colorName;
+            userVotesListView.getItems().add(voteInfo);
         }
         }
 
@@ -207,7 +232,7 @@ public class VoteAppController {
         // Set images and perform other operations for additional ImageViews
     }*/
     @FXML
-    private void displayResults() {
+    private void displayResults(Stage primaryStage) {
         // Retrieve the voters and choices from the voting system
         //List<Voter> voters = votingSystem.getListVoters();
 
@@ -224,7 +249,7 @@ public class VoteAppController {
             ResultsController resultsController = loader.getController();
 
             // Initialize the controller with the voters and choices
-            resultsController.initialize(votingSystem);
+            resultsController.initialize(votingSystem, primaryStage);
 
             // Show the scene on the stage
             Stage stage = new Stage();
@@ -266,15 +291,31 @@ public class VoteAppController {
         if (voter == null) {
 
 
-         voter = new Voter(listOfVoters.get(voterIndex).getName(), listOfVoters.get(voterIndex).getId());
+            voter = listOfVoters.get(voterIndex);
+
+        }
+        if (voter.getVotes().contains(colorIndex-1)) {
+            // Display an error message indicating that the voter has already voted for this color
+            String errorMessage = "You have already voted for this color!";
+            Alert alert = new Alert(Alert.AlertType.ERROR, errorMessage, ButtonType.OK);
+            alert.showAndWait();
+            return; // Exit the method to prevent registering the duplicate vote
+        }
+
+
 
         voter.castVote(votingSystem.getBallot(), colorIndex);
 
-        }
-        else {
-            voter.castVote(votingSystem.getBallot(), colorIndex);
 
-        }
+
+
+
+
+        String voteInfo = "You voted for: " + colorName;
+
+// Add the vote info to the userVotesListView
+        userVotesListView.getItems().add(voteInfo);
+
 
 
 
@@ -284,6 +325,48 @@ public class VoteAppController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
         alert.showAndWait();
     }
+
+    @FXML
+    private void handleDiscardVote(ActionEvent event) {
+        if (voter != null && !voter.getVotes().isEmpty()) {
+            // Remove the last vote from the voter's votes
+            int lastIndex = voter.getVotes().size() - 1;
+            voter.getVotes().remove(lastIndex);
+
+            // Remove the last vote info from the userVotesListView
+            if (!userVotesListView.getItems().isEmpty()) {
+                userVotesListView.getItems().remove(userVotesListView.getItems().size() - 1);
+            }
+
+            // Show a confirmation message to the user
+            String message = "Last vote discarded.";
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    private void handlePreviousButton(ActionEvent event) {
+        if (voterIndex > 0) {
+            // Decrement the voter index to go to the previous voter
+            voterIndex--;
+            nextButton.setText("Next voter");
+            voter = listOfVoters.get(voterIndex) ;
+
+            // Update the voter label
+            String voterName = listOfVoters.get(voterIndex).getName();
+            voterLabel.setText("Voter: " + voterName);
+
+            // Clear the userVotesListView
+            userVotesListView.getItems().clear();
+
+            // Show a confirmation message to the user
+            String message = "Previous voter selected.";
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
 
     private String getColorName(Color color) {
         for (Map.Entry<Color, String> entry : colorNameMap.entrySet()) {

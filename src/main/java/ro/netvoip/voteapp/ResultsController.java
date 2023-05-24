@@ -1,9 +1,13 @@
 package ro.netvoip.voteapp;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.util.*;
 
@@ -12,9 +16,17 @@ public class ResultsController {
     @FXML
     private ListView<String> votersListView;
 
+    @FXML
+    private Button exitButton;
+
+    @FXML
+    private Pane rootPane;
+
+    private Stage primaryStage;
 
 
-    public void initialize(VotingSystem votingSystem ) {
+    public void initialize(VotingSystem votingSystem, Stage primaryStage) {
+        this.primaryStage = primaryStage;
         // Iterate over the voters and their choices
         for (int i = 0; i < votingSystem.getListVoters().size(); i++) {
             Voter voter = votingSystem.getListVoters().get(i);
@@ -91,6 +103,8 @@ public class ResultsController {
         String Ovotes = "The rest of the colors have 0 votes.";
         votersListView.getItems().add(Ovotes);
 
+        //use a lambda expression to close the window
+
 
 
         /*List <Integer> results = new ArrayList<>(Collections.nCopies(votingSystem.getListVoters().get(0).getBallot().getCandidates().length, 0));
@@ -111,5 +125,17 @@ public class ResultsController {
             }*/
 
 
+    }
+
+
+    @FXML
+    private void handleExitButton(ActionEvent event) {
+        // Close the final results form
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
+
+        // Close the initial form
+        Stage initialStage = (Stage) primaryStage.getScene().getWindow();
+        initialStage.close();
     }
 }

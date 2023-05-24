@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2208a10-d408-4c6e-bf67-19f8c370b8aa" name="Changes" comment="Managed to implement the displaying of the results in low-level manner for now. One important aspect is that I made a connection between the mouse and next button events in order to store my VotingSystem, Voter and Ballot objects.">
+    <list default="true" id="f2208a10-d408-4c6e-bf67-19f8c370b8aa" name="Changes" comment="Now the display results works properly. I have also added functionality to the controller to display the winner or winners if there are multiple.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/ResultsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/Voter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/Voter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/Results.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/VoteApp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/VoteApp-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684835718615</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Now the display results works properly. I have also added functionality to the controller to display the winner or winners if there are multiple.">
+      <created>1684935193619</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684935193619</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,16 +151,31 @@
     <MESSAGE value="Implemented a controller method that automatically generates colors for images :)." />
     <MESSAGE value="Implemented a controller method that handles the votes by clicking on the color images. Also added labels on every grid pane(&quot;Vote for this color&quot;)." />
     <MESSAGE value="Managed to implement the displaying of the results in low-level manner for now. One important aspect is that I made a connection between the mouse and next button events in order to store my VotingSystem, Voter and Ballot objects." />
-    <option name="LAST_COMMIT_MESSAGE" value="Managed to implement the displaying of the results in low-level manner for now. One important aspect is that I made a connection between the mouse and next button events in order to store my VotingSystem, Voter and Ballot objects." />
+    <MESSAGE value="Now the display results works properly. I have also added functionality to the controller to display the winner or winners if there are multiple." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now the display results works properly. I have also added functionality to the controller to display the winner or winners if there are multiple." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/ResultsController.java</url>
-          <line>62</line>
+          <line>74</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java</url>
+          <line>296</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="13" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
