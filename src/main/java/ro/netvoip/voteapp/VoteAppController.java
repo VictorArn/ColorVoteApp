@@ -92,7 +92,7 @@ public class VoteAppController {
         String voterName = listOfVoters.get(voterIndex).getName();
         voterLabel.setText("Voter: " + voterName);
         // Create a Ballot with candidate names
-        String[] candidateNames = {"Color 1", "Color2", "Color 3", "Color 4", "Color 5", "Color 6", "Color 7", "Color 8", "Color 9", "Color 10", "Color 11", "Color 12",};
+        String[] candidateNames = {"Color 1", "Color 2", "Color 3", "Color 4", "Color 5", "Color 6", "Color 7", "Color 8", "Color 9", "Color 10", "Color 11", "Color 12",};
 
         // Generate random colors for the candidates
         candidateColors = generateRandomColors(candidateNames.length);
@@ -209,7 +209,7 @@ public class VoteAppController {
     @FXML
     private void displayResults() {
         // Retrieve the voters and choices from the voting system
-        List<Voter> voters = votingSystem.getListVoters();
+        //List<Voter> voters = votingSystem.getListVoters();
 
 
         // Load the Results.fxml file
@@ -224,7 +224,7 @@ public class VoteAppController {
             ResultsController resultsController = loader.getController();
 
             // Initialize the controller with the voters and choices
-            resultsController.initialize(voters);
+            resultsController.initialize(votingSystem);
 
             // Show the scene on the stage
             Stage stage = new Stage();

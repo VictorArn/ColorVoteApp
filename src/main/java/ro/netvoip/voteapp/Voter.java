@@ -21,6 +21,10 @@ public class Voter {
         return name;
     }
 
+    public Ballot getBallot() {
+        return ballot;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -41,8 +45,10 @@ public class Voter {
         return votes.get(index);
     }
 
+
     public void castVote(Ballot ballot, int choice) {
         // code to cast a vote for a candidate on the ballot
+        this.ballot = ballot;
         choice-=1;
         if (choice >= 0 && choice < ballot.getCandidates().length) {
             votes.add(choice);
