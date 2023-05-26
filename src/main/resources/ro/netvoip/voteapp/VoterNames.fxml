@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="buttonDone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="512.0" style="-fx-background-image: url(colorful-powder-explosion-happy-holi-festival-colors-art-concept.jpg); -fx-background-repeat: stretch; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.netvoip.voteapp.VoterNamesController">
+   <children>
+      <TextField fx:id="voterNameTextField" alignment="CENTER" layoutX="91.0" layoutY="197.0" prefWidth="330.0" />
+      <Label alignment="CENTER" layoutY="129.0" prefHeight="52.0" prefWidth="505.0" text="Enter the Voter's name" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="addVoterButton" layoutX="199.0" layoutY="251.0" mnemonicParsing="false" onAction="#handleAddVoterButtonAction" prefHeight="66.0" prefWidth="120.0" text="Add Voter" />
+   </children>
+</Pane>

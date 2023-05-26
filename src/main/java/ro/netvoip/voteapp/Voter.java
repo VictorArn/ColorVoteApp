@@ -25,6 +25,10 @@ public class Voter {
         return ballot;
     }
 
+    public void setBallot(Ballot ballot) {
+        this.ballot = ballot;
+    }
+
     public void setName(String name) {
         this.name = name;
     }

@@ -77,15 +77,19 @@ public class VoteAppController {
 
 
 
-    public void addVoters() {
+    public void addVoters(int numberOfVoters ,List<String> votersNames) {
         listOfVoters = new ArrayList<>();
-        Voter voter1 = new Voter("John Doe", 1);
+        for(int i = 0 ; i < numberOfVoters ; i++){
+            Voter voter = new Voter(votersNames.get(i), i+1);
+            listOfVoters.add(voter);
+        }
+      /*  Voter voter1 = new Voter("John Doe", 1);
         Voter voter2 = new Voter("Jane Doe", 2);
         Voter voter3 = new Voter("Jack Doe", 3);
 
         listOfVoters.add(voter1);
         listOfVoters.add(voter2);
-        listOfVoters.add(voter3);
+        listOfVoters.add(voter3);*/
     }
 
 
@@ -93,8 +97,8 @@ public class VoteAppController {
     // Map to associate color names with their Color objects
     private Map<Color, String> colorNameMap;
 
-    public void initialize() {
-        addVoters();
+    public void initialize(int numberOfVoters ,List<String> votersNames) {
+        addVoters( numberOfVoters , votersNames);
         String voterName = listOfVoters.get(voterIndex).getName();
         voterLabel.setText("Voter: " + voterName);
         // Create a Ballot with candidate names
@@ -139,12 +143,20 @@ public class VoteAppController {
     @FXML
     private void handleNextButton(ActionEvent event) {
 
+        // handle the situation where the first voter is null
+        if(voter == null){
+            voter = listOfVoters.get(voterIndex);
+            voter.setBallot(votingSystem.getBallot());
+
+        }
     // add the voter to the voting system after the mouse event
         if(!votingSystem.getListVoters().contains(voter) )
         votingSystem.addExistingVoter(voter);
         for(Voter voter : votingSystem.getListVoters()){
             System.out.println(voter.getName() + " " + voter.getId());
         }
+
+
 
         // create a new voter based on the list of voters
         if (voterIndex < listOfVoters.size()) {

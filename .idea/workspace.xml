@@ -4,12 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2208a10-d408-4c6e-bf67-19f8c370b8aa" name="Changes" comment="Now the display results works properly. I have also added functionality to the controller to display the winner or winners if there are multiple.">
+    <list default="true" id="f2208a10-d408-4c6e-bf67-19f8c370b8aa" name="Changes" comment="Made lots of changes:&#10;- added the option to discard a vote&#10;- added the option to go back to a previous voter, if there are multiple&#10;- added the option to not let a voter vote twice the same candidate&#10;- also added an error alert for the previous&#10;- in the Results.fxml I implemented the exit button which quits the application">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/StartingMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoterNamesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/colorful-powder-explosion-happy-holi-festival-colors-art-concept.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/colorimage.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/curvy-creative-abstract-wavy-effects-color-curves-flow-minimalist-luxury-stylish-trendy-colorful-wav.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/powder-splash-with-dark-background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/VoterNames.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/starting_menu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/HelloController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/Voter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/Voter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/Results.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/Results.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/VoteApp-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/VoteApp-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ro/netvoip/voteapp/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +64,16 @@
     </option>
   </component>
   <component name="ProjectId" id="2Q06cxLJb87EbYSB3F1N0DwWFfX" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -132,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684935193619</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Made lots of changes:&#10;- added the option to discard a vote&#10;- added the option to go back to a previous voter, if there are multiple&#10;- added the option to not let a voter vote twice the same candidate&#10;- also added an error alert for the previous&#10;- in the Results.fxml I implemented the exit button which quits the application">
+      <created>1684966818010</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684966818010</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,29 +170,31 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Setting up the git repository a bit later than usual, sorry, my first time." />
     <MESSAGE value="Implemented a controller method that automatically generates colors for images :)." />
     <MESSAGE value="Implemented a controller method that handles the votes by clicking on the color images. Also added labels on every grid pane(&quot;Vote for this color&quot;)." />
     <MESSAGE value="Managed to implement the displaying of the results in low-level manner for now. One important aspect is that I made a connection between the mouse and next button events in order to store my VotingSystem, Voter and Ballot objects." />
     <MESSAGE value="Now the display results works properly. I have also added functionality to the controller to display the winner or winners if there are multiple." />
-    <option name="LAST_COMMIT_MESSAGE" value="Now the display results works properly. I have also added functionality to the controller to display the winner or winners if there are multiple." />
+    <MESSAGE value="Made lots of changes:&#10;- added the option to discard a vote&#10;- added the option to go back to a previous voter, if there are multiple&#10;- added the option to not let a voter vote twice the same candidate&#10;- also added an error alert for the previous&#10;- in the Results.fxml I implemented the exit button which quits the application" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made lots of changes:&#10;- added the option to discard a vote&#10;- added the option to go back to a previous voter, if there are multiple&#10;- added the option to not let a voter vote twice the same candidate&#10;- also added an error alert for the previous&#10;- in the Results.fxml I implemented the exit button which quits the application" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/ResultsController.java</url>
-          <line>74</line>
+          <line>77</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java</url>
-          <line>151</line>
+          <line>163</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppController.java</url>
-          <line>296</line>
+          <line>308</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">

@@ -4,10 +4,9 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane prefHeight="802.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.netvoip.voteapp.ResultsController">
+<Pane prefHeight="802.0" prefWidth="740.0" style="-fx-background-image: url(powder-splash-with-dark-background.jpg); -fx-background-repeat: stretch; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.netvoip.voteapp.ResultsController">
    <children>
-      <ListView fx:id="votersListView" layoutX="14.0" layoutY="109.0" prefHeight="575.0" prefWidth="710.0" />
+      <ListView fx:id="votersListView" layoutX="14.0" layoutY="21.0" prefHeight="279.0" prefWidth="337.0" />
       <Button fx:id="exitButton" layoutX="386.0" layoutY="703.0" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="82.0" prefWidth="230.0" text="Exit" />
    </children>
 </Pane>

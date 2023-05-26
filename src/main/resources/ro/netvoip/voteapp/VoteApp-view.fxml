@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootPane" prefHeight="995.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.netvoip.voteapp.VoteAppController">
+<Pane fx:id="rootPane" prefHeight="995.0" prefWidth="1006.0" style="-fx-background-image: url(colorimage.jpg); -fx-background-repeat: stretch; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.netvoip.voteapp.VoteAppController">
    <children>
       <GridPane gridLinesVisible="true" layoutX="1.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0">
         <columnConstraints>
@@ -137,13 +137,13 @@
           </children>
 
       </GridPane>
-      <Label fx:id="voterLabel" alignment="CENTER" layoutX="45.0" layoutY="9.0" prefHeight="57.0" prefWidth="289.0" text="Voter Name:" textFill="#030851">
+      <Label fx:id="voterLabel" alignment="CENTER" layoutX="45.0" layoutY="9.0" prefHeight="57.0" prefWidth="289.0" text="Voter Name:" textFill="WHITE">
          <font>
-            <Font name="Apple Braille Outline 6 Dot" size="30.0" />
+            <Font name="Apple Braille Outline 6 Dot" size="32.0" />
          </font>
       </Label>
       <Button fx:id="nextButton" layoutX="799.0" layoutY="910.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="193.0" text="Next/display" />
-      <ListView fx:id="userVotesListView" layoutX="-2.0" layoutY="868.0" prefHeight="127.0" prefWidth="695.0" />
+      <ListView fx:id="userVotesListView" layoutX="-2.0" layoutY="868.0" prefHeight="78.0" prefWidth="289.0" />
       <Button fx:id="discardVoteButton" layoutX="693.0" layoutY="884.0" mnemonicParsing="false" onAction="#handleDiscardVote" prefHeight="26.0" prefWidth="97.0" text="Discard vote" />
       <Button fx:id="previousButton" layoutX="890.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" text="Previous voter" />
    </children>

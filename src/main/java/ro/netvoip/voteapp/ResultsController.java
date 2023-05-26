@@ -2,9 +2,7 @@ package ro.netvoip.voteapp;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -63,7 +61,12 @@ public class ResultsController {
         }
         String winnerIndex = votingSystem.getListVoters().get(0).getBallot().getCandidates()[Collections.max(results.entrySet(), Map.Entry.comparingByValue()).getKey()];
         int winnerIntIndex;
-        winnerIntIndex = Integer.parseInt(winnerIndex.substring(6));
+        try {
+            winnerIntIndex = Integer.parseInt(winnerIndex.substring(6));
+        } catch (NumberFormatException e) {
+            winnerIntIndex = 0;
+            e.printStackTrace();
+        }
         int anotherWinner = 0;
         String tie = "There are multiple winners: " + winnerIndex + " " ;
         //display the winner
@@ -84,10 +87,13 @@ public class ResultsController {
         }
         if(winnerIntIndex != anotherWinner)
         {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, winner, ButtonType.OK);
+            alert.showAndWait();
             votersListView.getItems().add(winner);
         }
         else
         {
+
             votersListView.getItems().add(tie);
         }
 
