@@ -10,13 +10,28 @@ import javafx.stage.Stage;
 import ro.netvoip.voteapp.StartingMenuController;
 import ro.netvoip.voteapp.VoteAppController;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.List;
 
+
 public class VoteAppApplication extends Application {
+    private ServerSocket serverSocket;
+    private boolean serverRunning;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // server-related
+        //------------------------------------------------------------------------------------------
+        // Start the server on port 5000 in a separate thread
+        serverRunning = true;
+        Thread serverThread = new Thread(this::startServer);
+        serverThread.start();
+
+        //------------------------------------------------------------------------------------------
+
+
         // Load the StartingMenu.fxml file
         FXMLLoader startingMenuLoader = new FXMLLoader(getClass().getResource("starting_menu.fxml"));
         Parent startingMenuRoot = startingMenuLoader.load();
@@ -79,7 +94,91 @@ public class VoteAppApplication extends Application {
         });
     }
 
+//------------------------------------------------------------------------------------------
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        stopServer();
+    }
+
+    //------------------------------------------------------------------------------------------
     public static void main(String[] args) {
         launch(args);
     }
+
+
+//------------------------------------------------------------------------------------------
+private void startServer() {
+    int portNumber = 5000;
+
+    try {
+        serverSocket = new ServerSocket(portNumber);
+        System.out.println("Server started on port " + portNumber);
+
+        while (serverRunning) {
+            Socket clientSocket = serverSocket.accept();
+            System.out.println("New client connected: " + clientSocket);
+
+            // Create a new thread to handle the client connection
+            Thread thread = new Thread(() -> handleClient(clientSocket));
+            thread.start();
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    } finally {
+        if (serverSocket != null && !serverSocket.isClosed()) {
+            try {
+                serverSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+    private void handleClient(Socket clientSocket) {
+        try {
+            // Get the input and output streams for the client connection
+            InputStream inputStream = clientSocket.getInputStream();
+            OutputStream outputStream = clientSocket.getOutputStream();
+
+            // Read the request from the client
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            String request = reader.readLine();
+
+            // Process the request and generate the response
+            String response = processRequest(request);
+
+            // Send the response back to the client
+            PrintWriter writer = new PrintWriter(outputStream, true);
+            writer.println(response);
+
+            // Close the streams and the client connection
+            writer.close();
+            reader.close();
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String processRequest(String request) {
+
+        return "Response from server: " + request;
+    }
+
+    private void stopServer() {
+        serverRunning = false;
+        if (serverSocket != null && !serverSocket.isClosed()) {
+            try {
+                serverSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
 }
