@@ -132,7 +132,13 @@ public class VoteAppController {
         control11.setImage(generateImageFromColor(candidateColors[10]));
         control12.setImage(generateImageFromColor(candidateColors[11]));
 
-        nextButton.setText("Next voter");
+        if(numberOfVoters == 1){
+            nextButton.setText("Display results");
+        }
+        else {
+            nextButton.setText("Next voter");
+        }
+
         nextButton.setOnAction(this::handleNextButton);
         previousButton.setOnAction(this::handlePreviousButton);
 

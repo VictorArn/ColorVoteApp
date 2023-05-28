@@ -4,7 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -24,11 +26,15 @@ public class StartingMenuController {
 
 
     public int getNumberOfVoters() {
+
         try {
-            return Integer.parseInt(numberOfVotersTextField.getText());
+            return Integer.parseInt(numberOfVotersTextField.getText().trim());
         } catch (NumberFormatException e) {
-            // Handle the case where the input is not a valid integer
-            return 0; // Return a default value or show an error message
+
+            String errorMessage = "Please enter a valid integer, positive number!";
+            Alert alert = new Alert(Alert.AlertType.ERROR, errorMessage, ButtonType.OK);
+            alert.showAndWait();
+            return -1;
         }
     }
 

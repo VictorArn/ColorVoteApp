@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import ro.netvoip.voteapp.StartingMenuController;
 import ro.netvoip.voteapp.VoteAppController;
@@ -34,6 +36,16 @@ public class VoteAppApplication extends Application {
         startingMenuController.getStartButton().setOnAction(event -> {
             // Retrieve the number of voters from the starting menu controller
             int numberOfVoters = startingMenuController.getNumberOfVoters();
+            if(numberOfVoters == 0){
+                String errorMessage = "Please enter an integer greater than 0!";
+                Alert alert = new Alert(Alert.AlertType.ERROR, errorMessage, ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
+            if(numberOfVoters == -1)
+            {
+                return;
+            }
 
             // Retrieve the list of voter names from the starting menu controller
             List<String> voterNames = startingMenuController.getVoterNames();

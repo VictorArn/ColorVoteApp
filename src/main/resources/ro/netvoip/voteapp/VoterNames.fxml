@@ -9,7 +9,7 @@
 <Pane fx:id="buttonDone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="512.0" style="-fx-background-image: url(colorful-powder-explosion-happy-holi-festival-colors-art-concept.jpg); -fx-background-repeat: stretch; -fx-background-size: cover;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.netvoip.voteapp.VoterNamesController">
    <children>
       <TextField fx:id="voterNameTextField" alignment="CENTER" layoutX="91.0" layoutY="197.0" prefWidth="330.0" />
-      <Label alignment="CENTER" layoutY="129.0" prefHeight="52.0" prefWidth="505.0" text="Enter the Voter's name" textFill="WHITE">
+      <Label fx:id="voterNameLabel" alignment="CENTER" layoutY="129.0" prefHeight="52.0" prefWidth="505.0" text="Enter the Voter's name" textFill="WHITE">
          <font>
             <Font size="23.0" />
          </font>
