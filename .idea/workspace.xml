@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2208a10-d408-4c6e-bf67-19f8c370b8aa" name="Changes" comment="This is the penultimate commit, I hope :). The actual app is finished, I have to check for a few server and threading elements.&#10;Final changes:&#10;- Input less than 1 voter or wrong character- error provider - rewind&#10;- Input empty voter name - error provider - rewind&#10;- VoteAppView - when only one voter — .settext(display results)&#10;- voternames view - show the number of the voter that will be added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/VoteAppApplication.java" afterDir="false" />
+    <list default="true" id="f2208a10-d408-4c6e-bf67-19f8c370b8aa" name="Changes" comment="This is the final commit where I have added the server functionality on port 5000 and threading to the App.&#10;It was a pleasure to build my first app, I wish to say thanks to my teacher Alexandru from NetVoip Company for guiding me trough the process.&#10;I love technology and I am proud that I managed to do a &quot;quarter-pixel&quot; stuff from it.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ro/netvoip/voteapp/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685282503593</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="This is the final commit where I have added the server functionality on port 5000 and threading to the App.&#10;It was a pleasure to build my first app, I wish to say thanks to my teacher Alexandru from NetVoip Company for guiding me trough the process.&#10;I love technology and I am proud that I managed to do a &quot;quarter-pixel&quot; stuff from it.">
+      <created>1685289741804</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685289741804</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,7 +185,8 @@
     <MESSAGE value="One of the final commits:&#10;- added a starting menu that accepts the number of voters&#10;- added a menu for inputing voter names&#10;-added background for every scene&#10;-and a lot else" />
     <MESSAGE value="This is the final commit, I hope :).&#10;Final changes:&#10;- Input less than 1 voter or wrong character- error provider - rewind&#10;- Input empty voter name - error provider - rewind&#10;- VoteAppView - when only one voter — .settext(display results)&#10;- voternames view - show the number of the voter that will be added&#10;This was my first app made and it was very fun, I love that technology exists &lt;3." />
     <MESSAGE value="This is the penultimate commit, I hope :). The actual app is finished, I have to check for a few server and threading elements.&#10;Final changes:&#10;- Input less than 1 voter or wrong character- error provider - rewind&#10;- Input empty voter name - error provider - rewind&#10;- VoteAppView - when only one voter — .settext(display results)&#10;- voternames view - show the number of the voter that will be added" />
-    <option name="LAST_COMMIT_MESSAGE" value="This is the penultimate commit, I hope :). The actual app is finished, I have to check for a few server and threading elements.&#10;Final changes:&#10;- Input less than 1 voter or wrong character- error provider - rewind&#10;- Input empty voter name - error provider - rewind&#10;- VoteAppView - when only one voter — .settext(display results)&#10;- voternames view - show the number of the voter that will be added" />
+    <MESSAGE value="This is the final commit where I have added the server functionality on port 5000 and threading to the App.&#10;It was a pleasure to build my first app, I wish to say thanks to my teacher Alexandru from NetVoip Company for guiding me trough the process.&#10;I love technology and I am proud that I managed to do a &quot;quarter-pixel&quot; stuff from it." />
+    <option name="LAST_COMMIT_MESSAGE" value="This is the final commit where I have added the server functionality on port 5000 and threading to the App.&#10;It was a pleasure to build my first app, I wish to say thanks to my teacher Alexandru from NetVoip Company for guiding me trough the process.&#10;I love technology and I am proud that I managed to do a &quot;quarter-pixel&quot; stuff from it." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
